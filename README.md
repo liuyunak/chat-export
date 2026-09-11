@@ -129,6 +129,6 @@ scripts/
 
 ## 仓库镜像
 
-- GitHub（主仓）
-- Gitee（国内镜像）
-- AtomGit（国内镜像）
+- GitHub（主仓）：https://github.com/liuyunak/chat-export
+- Gitee（国内镜像）：https://gitee.com/ikeer_1_ligui880213/chat-export
+- AtomGit（国内镜像）：https://atomgit.com/liuyunak/chat-export
