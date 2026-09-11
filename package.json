@@ -1,0 +1,22 @@
+{
+  "name": "chat-export-userscript",
+  "version": "0.1.0",
+  "private": true,
+  "description": "把聊天 / Agent 工具的分享会话导出为 Markdown（国内平台优先，油猴脚本起步）",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "build:extension": "node scripts/build-extension.mjs",
+    "build:all": "npm run build && npm run build:extension",
+    "typecheck": "tsc --noEmit",
+    "verify": "tsx scripts/verify.ts"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vite-plugin-monkey": "^8.1.1"
+  }
+}
