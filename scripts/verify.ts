@@ -16,6 +16,7 @@ import { mapTraeData } from '../src/adapters/trae';
 import { mapKimiShare } from '../src/adapters/kimi';
 import { mapYuanbaoShare } from '../src/adapters/yuanbao';
 import { mapChatglmData } from '../src/adapters/chatglm';
+import { mapMetasoData } from '../src/adapters/metaso';
 import { renderMarkdown } from '../src/core/render';
 
 async function fetchJson(url: string, referer: string): Promise<unknown> {
@@ -129,6 +130,22 @@ async function getConversation(platform: string, arg: string): Promise<Conversat
     // 智谱清言数据在页面内存（接口带 X-Sign 签名），用导出的本地 JSON 验证
     const data = JSON.parse(readFileSync(arg, 'utf8')) as Parameters<typeof mapChatglmData>[0];
     return mapChatglmData(data, data.sourceUrl ?? 'https://chatglm.cn/share/unknown');
+  }
+  if (platform === 'metaso') {
+    // argv: [node, tsx, metaso, conversationId, shareKey]
+    const shareKey = process.argv[4];
+    if (!shareKey) {
+      throw new Error('用法: npx tsx scripts/verify.ts metaso <conversationId> <shareKey>');
+    }
+    const sourceUrl = `https://metaso.cn/chat/${arg}?shareType=15&ssi=${shareKey}`;
+    const resp = await fetch(
+      `https://metaso.cn/api/conversation/${arg}/branched-messages?shareKey=${encodeURIComponent(shareKey)}&shareType=15`,
+      { headers: { 'user-agent': 'Mozilla/5.0', referer: sourceUrl } },
+    );
+    if (!resp.ok) throw new Error(`接口请求失败：HTTP ${resp.status}`);
+    const json = (await resp.json()) as { errCode?: number; data?: Parameters<typeof mapMetasoData>[0] };
+    if (json.errCode !== 0 || !json.data) throw new Error(`分享不存在或已失效（errCode=${json.errCode}）`);
+    return mapMetasoData(json.data, sourceUrl);
   }
   throw new Error(`未知平台：${platform}`);
 }

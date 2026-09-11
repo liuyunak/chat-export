@@ -23,6 +23,7 @@
 | Kimi | ✅ 可用 | 公开接口 `GetChatShare`（blocks：text / think / search） |
 | 腾讯元宝 | ✅ 可用 | 页面 SSR 内嵌 `__NEXT_DATA__`（speechesV2 段：text / think / searchGuid） |
 | 智谱清言（ChatGLM） | ✅ 可用 | 页面内存提取（接口带 X-Sign 签名；vuex dataList：question + answerArray） |
+| 秘塔 AI 搜索（Metaso） | ✅ 可用 | 公开接口 `/api/conversation/{id}/branched-messages`（含思考轨迹 + 去重后的引用来源） |
 | 通义千问 | ➖ 不需要 | 官方原生支持导出，无需适配 |
 
 > 通义千问全系列自带会话导出功能，无需本项目适配。

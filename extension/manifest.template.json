@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "聊天会话导出助手",
-  "description": "把 DeepSeek / WorkBuddy / 豆包 / Trae / Kimi / 元宝 / 智谱清言 的分享会话导出为 Markdown，可选是否包含思考过程",
+  "description": "把 DeepSeek / WorkBuddy / 豆包 / Trae / Kimi / 元宝 / 智谱清言 / 秘塔 的分享会话导出为 Markdown，可选是否包含思考过程",
   "version": "0.0.0",
   "minimum_chrome_version": "111",
   "content_scripts": [

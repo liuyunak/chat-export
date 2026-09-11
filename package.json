@@ -1,6 +1,6 @@
 {
   "name": "chat-export-userscript",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "把聊天 / Agent 工具的分享会话导出为 Markdown（国内平台优先，油猴脚本起步）",
   "type": "module",

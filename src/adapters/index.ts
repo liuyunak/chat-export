@@ -6,6 +6,7 @@ import { traeAdapter } from './trae';
 import { kimiAdapter } from './kimi';
 import { yuanbaoAdapter } from './yuanbao';
 import { chatglmAdapter } from './chatglm';
+import { metasoAdapter } from './metaso';
 
 const adapters: Adapter[] = [
   deepseekAdapter,
@@ -15,6 +16,7 @@ const adapters: Adapter[] = [
   kimiAdapter,
   yuanbaoAdapter,
   chatglmAdapter,
+  metasoAdapter,
 ];
 
 /** 根据 URL 找到能处理当前页面的适配器 */
@@ -29,4 +31,5 @@ export { traeAdapter } from './trae';
 export { kimiAdapter } from './kimi';
 export { yuanbaoAdapter } from './yuanbao';
 export { chatglmAdapter } from './chatglm';
+export { metasoAdapter } from './metaso';
 export type { Adapter } from './types';
