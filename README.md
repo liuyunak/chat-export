@@ -83,6 +83,9 @@ git remote add atomgit git@atomgit.com:<you>/chat-export.git
 
 # 3. 推送三仓（推 v* 标签到 GitHub 会自动触发 CI 构建并发布 Release）
 ./scripts/sync-repos.sh v0.x.0
+
+# 4. 等 CI 跑完后，把 Release 安装包同步到 Gitee / AtomGit（两家不会自动生成 Release）
+node scripts/publish-release.mjs v0.x.0
 ```
 
 ### 目录结构
